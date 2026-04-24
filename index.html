@@ -1,170 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tier Realms</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tier Realms</title>
 
-    <!-- Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
+<link rel="icon" href="logo.png">
 
-        html {
-            scroll-behavior: smooth;
-        }
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
 
-        body {
-            background: radial-gradient(circle at top, #1a001f, #000);
-            color: white;
-        }
+html{
+    scroll-behavior:smooth;
+}
 
-        /* NAV */
-        nav {
-            position: fixed;
-            width: 100%;
-            top: 0;
-            display: flex;
-            justify-content: space-between;
-            padding: 20px 60px;
-            background: rgba(0,0,0,0.6);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-        }
+body{
+    background: radial-gradient(circle at top,#1a001f,#000);
+    color:white;
+    overflow-x:hidden;
+}
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 25px;
-            font-weight: 600;
-            transition: 0.3s;
-        }
+/* NAVBAR */
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 50px;
+    background:rgba(0,0,0,0.6);
+    backdrop-filter:blur(10px);
+    z-index:1000;
+}
 
-        nav a:hover {
-            color: #b84cff;
-        }
+nav img{
+    width:45px;
+}
 
-        /* HERO */
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:25px;
+    font-weight:600;
+    transition:0.3s;
+}
 
-        .logo {
-            width: 280px;
-            margin-bottom: 20px;
-            filter: drop-shadow(0 0 20px #b84cff);
-        }
+nav a:hover{
+    color:#b84cff;
+}
 
-        .hero h1 {
-            font-size: 60px;
-            letter-spacing: 2px;
-        }
+/* HERO */
+.hero{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    animation:fadeIn 1.5s ease;
+}
 
-        .hero p {
-            margin-top: 10px;
-            font-size: 20px;
-            opacity: 0.8;
-        }
+.hero img{
+    width:120px;
+    margin-bottom:15px;
+    filter:drop-shadow(0 0 15px #b84cff);
+}
 
-        .btn {
-            margin-top: 30px;
-            padding: 14px 30px;
-            background: linear-gradient(45deg, #b84cff, #7a00ff);
-            border-radius: 10px;
-            text-decoration: none;
-            color: white;
-            font-weight: 600;
-            transition: 0.3s;
-        }
+.hero h1{
+    font-family:'Orbitron',sans-serif;
+    font-size:55px;
+    letter-spacing:3px;
+}
 
-        .btn:hover {
-            transform: scale(1.05);
-        }
+.hero p{
+    margin-top:10px;
+    opacity:0.8;
+}
 
-        /* SECTIONS */
-        section {
-            padding: 100px 10%;
-        }
+.btn{
+    margin-top:25px;
+    padding:14px 30px;
+    border-radius:12px;
+    background:linear-gradient(45deg,#b84cff,#6a00ff);
+    text-decoration:none;
+    color:white;
+    font-weight:600;
+    transition:0.3s;
+}
 
-        h2 {
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 40px;
-        }
+.btn:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 20px #b84cff;
+}
 
-        /* ABOUT */
-        .about {
-            max-width: 900px;
-            margin: auto;
-            text-align: center;
-            line-height: 1.7;
-            opacity: 0.9;
-        }
+/* SECTIONS */
+section{
+    padding:100px 10%;
+}
 
-        /* FEATURES */
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-            gap: 20px;
-        }
+h2{
+    text-align:center;
+    font-size:38px;
+    margin-bottom:25px;
+}
 
-        .card {
-            background: rgba(255,255,255,0.05);
-            padding: 20px;
-            border-radius: 15px;
-            text-align: center;
-            transition: 0.3s;
-        }
+/* ABOUT */
+.about{
+    max-width:800px;
+    margin:auto;
+    text-align:center;
+    line-height:1.7;
+    opacity:0.9;
+}
 
-        .card:hover {
-            transform: translateY(-5px);
-            background: rgba(184,76,255,0.15);
-        }
+/* FEATURES */
+.features{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
 
-        /* DISCORD FLOAT */
-        .discord-float {
-            position: fixed;
-            right: 20px;
-            bottom: 20px;
-            background: #5865F2;
-            padding: 15px 18px;
-            border-radius: 50px;
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            box-shadow: 0 0 15px rgba(0,0,0,0.4);
-            transition: 0.3s;
-        }
+.card{
+    background:rgba(255,255,255,0.05);
+    padding:25px;
+    border-radius:15px;
+    text-align:center;
+    transition:0.3s;
+}
 
-        .discord-float:hover {
-            transform: scale(1.1);
-        }
+.card:hover{
+    transform:translateY(-8px);
+    background:rgba(184,76,255,0.15);
+}
 
-        /* FOOTER */
-        footer {
-            text-align: center;
-            padding: 30px;
-            opacity: 0.6;
-        }
-    </style>
+/* FLOAT DISCORD */
+.discord{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#5865F2;
+    padding:15px 18px;
+    border-radius:50px;
+    text-decoration:none;
+    color:white;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.discord:hover{
+    transform:scale(1.1);
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:25px;
+    opacity:0.6;
+}
+
+/* ANIMATION */
+@keyframes fadeIn{
+    from{opacity:0;transform:translateY(20px);}
+    to{opacity:1;transform:translateY(0);}
+}
+
+/* MOBILE */
+@media(max-width:768px){
+    .hero h1{
+        font-size:35px;
+    }
+}
+</style>
 </head>
 
 <body>
 
 <!-- NAV -->
 <nav>
-    <div><b>TIER REALMS</b></div>
+    <img src="logo.png">
     <div>
         <a href="#about">About</a>
         <a href="#features">Features</a>
@@ -174,9 +195,9 @@
 
 <!-- HERO -->
 <div class="hero">
-    <img src="logo.png" class="logo">
+    <img src="logo.png">
     <h1>TIER REALMS</h1>
-    <p>WHERE SURVIVAL HAS NO LIMITS</p>
+    <p>COMING SOON — A NEW ERA OF SURVIVAL</p>
     <a class="btn" href="https://discord.gg/qJaMjCkqDk" target="_blank">Join Discord</a>
 </div>
 
@@ -185,38 +206,36 @@
     <h2>About Us</h2>
     <div class="about">
         <p>
-            We are currently developing a next-generation Survival Minecraft server designed to deliver a smooth, stable, and high-performance experience. Our focus is simple — no lag, no breakdowns, and consistent gameplay you can rely on.
+            Tier Realms is an upcoming next-generation Minecraft survival experience built for players who demand performance, freedom, and intensity.
             <br><br>
-            Tier Realms combines survival with true anarchy. No safe zones, no protection, and no limits. Every player must build, fight, and survive on their own terms.
+            This is not just survival — this is controlled chaos. No safe zones, no protection, and no limits. Every player writes their own story through PvP, raiding, alliances, and war.
             <br><br>
-            Expect full PvP, raiding, alliances, betrayals, and complete freedom — where every decision matters.
-            <br><br>
-            Our team brings 2+ years of experience, building a competitive and optimized environment for long-term gameplay.
+            Designed for smooth gameplay with optimized performance and minimal lag, Tier Realms aims to deliver a competitive environment where skill and strategy define your legacy.
         </p>
     </div>
 </section>
 
 <!-- FEATURES -->
 <section id="features">
-    <h2>Features</h2>
+    <h2>Core Features</h2>
     <div class="features">
-        <div class="card">Pure Survival + Anarchy</div>
-        <div class="card">No Safe Zones</div>
+        <div class="card">Survival + Anarchy Experience</div>
+        <div class="card">No Rules Gameplay</div>
         <div class="card">Full PvP & Raiding</div>
-        <div class="card">Low Ping & Stability</div>
+        <div class="card">Optimized Performance</div>
         <div class="card">Community Wars</div>
-        <div class="card">Active Staff</div>
+        <div class="card">Long-Term Progression</div>
     </div>
 </section>
 
 <!-- JOIN -->
 <section id="join">
-    <h2>Join The Journey</h2>
+    <h2>Join The Community</h2>
     <div class="about">
         <p>
-            Be part of the early community and stay updated on development.
+            The server is currently under development and will be launching soon.
             <br><br>
-            <b>COMING SOON</b> — Join our Discord now and secure your place before launch.
+            Join our Discord now to stay updated, secure your early presence, and be part of the founding community.
         </p>
         <br>
         <a class="btn" href="https://discord.gg/qJaMjCkqDk" target="_blank">Join Discord</a>
@@ -224,12 +243,13 @@
 </section>
 
 <!-- FLOAT BUTTON -->
-<a href="https://discord.gg/qJaMjCkqDk" target="_blank" class="discord-float">
-    Join Discord
+<a href="https://discord.gg/qJaMjCkqDk" target="_blank" class="discord">
+    Discord
 </a>
 
+<!-- FOOTER -->
 <footer>
-    © 2026 Tier Realms — All Rights Reserved
+    © 2026 Tier Realms — Built for domination. Launching soon.
 </footer>
 
 </body>
