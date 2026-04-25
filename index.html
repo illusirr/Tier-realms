@@ -21,8 +21,9 @@ html{
     scroll-behavior:smooth;
 }
 
+/* 🔥 BETTER PURPLE BACKGROUND */
 body{
-    background: radial-gradient(circle at top,#1a001f,#000);
+    background: radial-gradient(circle at center, #2a0033 0%, #120018 40%, #000 100%);
     color:white;
     overflow-x:hidden;
 }
@@ -68,16 +69,16 @@ nav a:hover{
     animation:fadeIn 1.5s ease;
 }
 
-.hero img{
-    width:120px;
-    margin-bottom:15px;
-    filter:drop-shadow(0 0 15px #b84cff);
-}
-
-.hero h1{
+/* ✨ ANIMATED TITLE */
+.animated-title{
     font-family:'Orbitron',sans-serif;
     font-size:55px;
-    letter-spacing:3px;
+    letter-spacing:4px;
+    background: linear-gradient(90deg,#b84cff,#6a00ff,#b84cff);
+    background-size:200% auto;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    animation: shine 4s linear infinite, float 3s ease-in-out infinite;
 }
 
 .hero p{
@@ -166,15 +167,27 @@ footer{
     opacity:0.6;
 }
 
-/* ANIMATION */
+/* ANIMATIONS */
 @keyframes fadeIn{
     from{opacity:0;transform:translateY(20px);}
     to{opacity:1;transform:translateY(0);}
 }
 
+/* ✨ SHINE EFFECT */
+@keyframes shine{
+    0%{background-position:0%;}
+    100%{background-position:200%;}
+}
+
+/* ✨ FLOAT EFFECT */
+@keyframes float{
+    0%,100%{transform:translateY(0px);}
+    50%{transform:translateY(-10px);}
+}
+
 /* MOBILE */
 @media(max-width:768px){
-    .hero h1{
+    .animated-title{
         font-size:35px;
     }
 }
@@ -195,8 +208,7 @@ footer{
 
 <!-- HERO -->
 <div class="hero">
-    <img src="logo.png">
-    <h1>TIER REALMS</h1>
+    <h1 class="animated-title">TIER REALMS</h1>
     <p>COMING SOON — A NEW ERA OF SURVIVAL</p>
     <a class="btn" href="https://discord.gg/qJaMjCkqDk" target="_blank">Join Discord</a>
 </div>
