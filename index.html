@@ -1,158 +1,268 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#020202" />
-    <!-- Pixel Cloud Favicon -->
-    <link rel="icon" type="logo.png" href="https://i.postimg.cc/3rbwKD9d/logo-removebg-preview.png" />
-    
-    <!-- SEO Metadata -->
-    <title>Swagger.Cloud - Premium Minecraft Server Hosting</title>
-    <meta name="description" content="Level up your server game with Swagger.Cloud. Premium Minecraft hosting offering high-performance Intel Xeon-E hardware, guaranteed uptime, and global locations.">
-    <meta name="keywords" content="swagger, swagger.cloud, swaggercloud, swaggerstudio, craftoji, minecraft hosting, game server hosting, dedicated server, vps hosting">
-    <meta name="author" content="Swagger.Cloud">
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tier Realms</title>
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://swagger.cloud/">
-    <meta property="og:title" content="Swagger.Cloud - Level Up Your Server Game">
-    <meta property="og:description" content="Premium Minecraft hosting with instant deploy, enterprise security, and 24/7 expert support.">
-    <meta property="og:image" content="https://swagger.cloud/og-image.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://swagger.cloud/">
-    <meta property="twitter:title" content="Swagger.Cloud - Level Up Your Server Game">
-    <meta property="twitter:description" content="Premium Minecraft hosting with instant deploy, enterprise security, and 24/7 expert support.">
-    <meta property="twitter:image" content="https://swagger.cloud/og-image.jpg">
+<link rel="icon" href="logo.png">
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ['Inter', 'sans-serif'],
-              mono: ['JetBrains Mono', 'monospace'],
-            },
-            colors: {
-              brand: {
-                dark: '#020202', 
-                card: '#0A0A0A',
-                violet: '#7c3aed',
-                accent: '#06b6d4', 
-              }
-            },
-            animation: {
-              'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-              'float': 'float 6s ease-in-out infinite',
-              'shine': 'shine 8s ease-in-out infinite',
-            },
-            keyframes: {
-              float: {
-                '0%, 100%': { transform: 'translateY(0)' },
-                '50%': { transform: 'translateY(-10px)' },
-              },
-              shine: {
-                '0%, 100%': { backgroundPosition: '200% center' },
-              }
-            },
-            backgroundImage: {
-              'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-              'hero-glow': 'conic-gradient(from 180deg at 50% 50%, #2a2a2a 0deg, #1a1a1a 180deg, #2a2a2a 360deg)',
-            }
-          }
-        }
-      }
-    </script>
-    <style>
-      :root {
-        --cursor-x: 0px;
-        --cursor-y: 0px;
-      }
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
 
-      body {
-        background-color: #020202;
-        color: #e2e8f0;
-        overflow-x: hidden;
-      }
-      
-      /* Premium Scrollbar */
-      ::-webkit-scrollbar {
-        width: 6px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #020202; 
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #333; 
-        border-radius: 3px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #444; 
-      }
+html{
+    scroll-behavior:smooth;
+}
 
-      /* Noise overlay */
-      .bg-noise {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        z-index: 50;
-        opacity: 0.04;
-        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E");
-      }
+/* 🔥 BETTER PURPLE BACKGROUND */
+body{
+    background: radial-gradient(circle at center, #2a0033 0%, #120018 40%, #000 100%);
+    color:white;
+    overflow-x:hidden;
+}
 
-      .glass-panel {
-        background: rgba(10, 10, 10, 0.6);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-      }
-      
-      .glass-nav {
-        background: rgba(2, 2, 2, 0.8);
-        backdrop-filter: blur(20px);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-      }
+/* NAVBAR */
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 50px;
+    background:rgba(0,0,0,0.6);
+    backdrop-filter:blur(10px);
+    z-index:1000;
+}
 
-      .text-glow {
-        text-shadow: 0 0 20px rgba(124, 58, 237, 0.5);
-      }
+nav img{
+    width:45px;
+}
 
-      /* Grid Background */
-      .grid-bg {
-        background-size: 40px 40px;
-        background-image: 
-          linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-          linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-        mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
-        -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
-      }
-      
-      /* Selection */
-      ::selection {
-        background: rgba(124, 58, 237, 0.3);
-        color: white;
-      }
-    </style>
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:25px;
+    font-weight:600;
+    transition:0.3s;
+}
 
-  <link rel="stylesheet" href="/index.css">
-    <script type="importmap">
-    {
-      "imports": {
-        "react/": "https://esm.sh/react@^19.2.4/",
-        "react": "https://esm.sh/react@^19.2.4",
-        "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
-        "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
-        "d3": "https://esm.sh/d3@^7.9.0",
-        "topojson-client": "https://esm.sh/topojson-client@^3.1.0"
-      }
+nav a:hover{
+    color:#b84cff;
+}
+
+/* HERO */
+.hero{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    animation:fadeIn 1.5s ease;
+}
+
+/* ✨ ANIMATED TITLE */
+.animated-title{
+    font-family:'Orbitron',sans-serif;
+    font-size:55px;
+    letter-spacing:4px;
+    background: linear-gradient(90deg,#b84cff,#6a00ff,#b84cff);
+    background-size:200% auto;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    animation: shine 4s linear infinite, float 3s ease-in-out infinite;
+}
+
+.hero p{
+    margin-top:10px;
+    opacity:0.8;
+}
+
+.btn{
+    margin-top:25px;
+    padding:14px 30px;
+    border-radius:12px;
+    background:linear-gradient(45deg,#b84cff,#6a00ff);
+    text-decoration:none;
+    color:white;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 20px #b84cff;
+}
+
+/* SECTIONS */
+section{
+    padding:100px 10%;
+}
+
+h2{
+    text-align:center;
+    font-size:38px;
+    margin-bottom:25px;
+}
+
+/* ABOUT */
+.about{
+    max-width:800px;
+    margin:auto;
+    text-align:center;
+    line-height:1.7;
+    opacity:0.9;
+}
+
+/* FEATURES */
+.features{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:rgba(255,255,255,0.05);
+    padding:25px;
+    border-radius:15px;
+    text-align:center;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    background:rgba(184,76,255,0.15);
+}
+
+/* FLOAT DISCORD */
+.discord{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#5865F2;
+    padding:15px 18px;
+    border-radius:50px;
+    text-decoration:none;
+    color:white;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.discord:hover{
+    transform:scale(1.1);
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:25px;
+    opacity:0.6;
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn{
+    from{opacity:0;transform:translateY(20px);}
+    to{opacity:1;transform:translateY(0);}
+}
+
+/* ✨ SHINE EFFECT */
+@keyframes shine{
+    0%{background-position:0%;}
+    100%{background-position:200%;}
+}
+
+/* ✨ FLOAT EFFECT */
+@keyframes float{
+    0%,100%{transform:translateY(0px);}
+    50%{transform:translateY(-10px);}
+}
+
+/* MOBILE */
+@media(max-width:768px){
+    .animated-title{
+        font-size:35px;
     }
-    </script>
-  <script type="module" crossorigin src="/assets/index-DopeD6hV.js"></script>
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+    <img src="logo.png">
+    <div>
+        <a href="#about">About</a>
+        <a href="#features">Features</a>
+        <a href="#join">Join</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+    <h1 class="animated-title">TIER REALMS</h1>
+    <p>COMING SOON — A NEW ERA OF SURVIVAL</p>
+    <a class="btn" href="https://discord.gg/qJaMjCkqDk" target="_blank">Join Discord</a>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+    <h2>About Us</h2>
+    <div class="about">
+        <p>
+            Tier Realms is an upcoming next-generation Minecraft survival experience built for players who demand performance, freedom, and intensity.
+            <br><br>
+            This is not just survival — this is controlled chaos. No safe zones, no protection, and no limits. Every player writes their own story through PvP, raiding, alliances, and war.
+            <br><br>
+            Designed for smooth gameplay with optimized performance and minimal lag, Tier Realms aims to deliver a competitive environment where skill and strategy define your legacy.
+        </p>
+    </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features">
+    <h2>Core Features</h2>
+    <div class="features">
+        <div class="card">Survival + Anarchy Experience</div>
+        <div class="card">No Rules Gameplay</div>
+        <div class="card">Full PvP & Raiding</div>
+        <div class="card">Optimized Performance</div>
+        <div class="card">Community Wars</div>
+        <div class="card">Long-Term Progression</div>
+    </div>
+</section>
+
+<!-- JOIN -->
+<section id="join">
+    <h2>Join The Community</h2>
+    <div class="about">
+        <p>
+            The server is currently under development and will be launching soon.
+            <br><br>
+            Join our Discord now to stay updated, secure your early presence, and be part of the founding community.
+        </p>
+        <br>
+        <a class="btn" href="https://discord.gg/qJaMjCkqDk" target="_blank">Join Discord</a>
+    </div>
+</section>
+
+<!-- FLOAT BUTTON -->
+<a href="https://discord.gg/qJaMjCkqDk" target="_blank" class="discord">
+    Discord
+</a>
+
+<!-- FOOTER -->
+<footer>
+    © 2026 Tier Realms — Built for domination. Launching soon.
+</footer>
+
+</body>
+</html>
