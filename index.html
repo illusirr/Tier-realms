@@ -1,268 +1,166 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tier Realms</title>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#020202" />
+    <!-- Pixel Cloud Favicon -->
+    <link rel="icon" type="image/png" href="https://i.postimg.cc/3rbwKD9d/logo-removebg-preview.png" />
+    <!-- SEO Metadata -->
+    <title>
+      Swagger.Cloud - Premium Minecraft Server Hosting
+    </title>
+    <meta name="description" content="Level up your server game with Swagger.Cloud. Premium Minecraft hosting offering high-performance Intel Xeon-E hardware, guaranteed uptime, and global locations." />
+    <meta name="keywords" content="swagger, swagger.cloud, swaggercloud, swaggerstudio, craftoji, minecraft hosting, game server hosting, dedicated server, vps hosting" />
+    <meta name="author" content="Swagger.Cloud" />
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://swagger.cloud/" />
+    <meta property="og:title" content="Swagger.Cloud - Level Up Your Server Game" />
+    <meta property="og:description" content="Premium Minecraft hosting with instant deploy, enterprise security, and 24/7 expert support." />
+    <meta property="og:image" content="https://swagger.cloud/og-image.jpg" />
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://swagger.cloud/" />
+    <meta property="twitter:title" content="Swagger.Cloud - Level Up Your Server Game" />
+    <meta property="twitter:description" content="Premium Minecraft hosting with instant deploy, enterprise security, and 24/7 expert support." />
+    <meta property="twitter:image" content="https://swagger.cloud/og-image.jpg" />
+    <script src="https://cdn.tailwindcss.com">
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet" />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: [&#39;Inter&#39;, &#39;sans-serif&#39;],
+              mono: [&#39;JetBrains Mono&#39;, &#39;monospace&#39;],
+            },
+            colors: {
+              brand: {
+                dark: &#39;#020202&#39;, 
+                card: &#39;#0A0A0A&#39;,
+                violet: &#39;#7c3aed&#39;,
+                accent: &#39;#06b6d4&#39;, 
+              }
+            },
+            animation: {
+              &#39;pulse-slow&#39;: &#39;pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite&#39;,
+              &#39;float&#39;: &#39;float 6s ease-in-out infinite&#39;,
+              &#39;shine&#39;: &#39;shine 8s ease-in-out infinite&#39;,
+            },
+            keyframes: {
+              float: {
+                &#39;0%, 100%&#39;: { transform: &#39;translateY(0)&#39; },
+                &#39;50%&#39;: { transform: &#39;translateY(-10px)&#39; },
+              },
+              shine: {
+                &#39;0%, 100%&#39;: { backgroundPosition: &#39;200% center&#39; },
+              }
+            },
+            backgroundImage: {
+              &#39;gradient-radial&#39;: &#39;radial-gradient(var(--tw-gradient-stops))&#39;,
+              &#39;hero-glow&#39;: &#39;conic-gradient(from 180deg at 50% 50%, #2a2a2a 0deg, #1a1a1a 180deg, #2a2a2a 360deg)&#39;,
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      :root {
+        --cursor-x: 0px;
+        --cursor-y: 0px;
+      }
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+      body {
+        background-color: #020202;
+        color: #e2e8f0;
+        overflow-x: hidden;
+      }
+      
+      /* Premium Scrollbar */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #020202; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #333; 
+        border-radius: 3px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #444; 
+      }
 
-<link rel="icon" href="logo.png">
+      /* Noise overlay */
+      .bg-noise {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 50;
+        opacity: 0.04;
+        background-image: url(&#34;data:image/svg+xml,%3Csvg viewBox=&#39;0 0 200 200&#39; xmlns=&#39;http://www.w3.org/2000/svg&#39;%3E%3Cfilter id=&#39;noiseFilter&#39;%3E%3CfeTurbulence type=&#39;fractalNoise&#39; baseFrequency=&#39;0.65&#39; numOctaves=&#39;3&#39; stitchTiles=&#39;stitch&#39;/%3E%3C/filter%3E%3Crect width=&#39;100%25&#39; height=&#39;100%25&#39; filter=&#39;url(%23noiseFilter)&#39; opacity=&#39;1&#39;/%3E%3C/svg%3E&#34;);
+      }
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
-}
+      .glass-panel {
+        background: rgba(10, 10, 10, 0.6);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      
+      .glass-nav {
+        background: rgba(2, 2, 2, 0.8);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
 
-html{
-    scroll-behavior:smooth;
-}
+      .text-glow {
+        text-shadow: 0 0 20px rgba(124, 58, 237, 0.5);
+      }
 
-/* 🔥 BETTER PURPLE BACKGROUND */
-body{
-    background: radial-gradient(circle at center, #2a0033 0%, #120018 40%, #000 100%);
-    color:white;
-    overflow-x:hidden;
-}
-
-/* NAVBAR */
-nav{
-    position:fixed;
-    top:0;
-    width:100%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:15px 50px;
-    background:rgba(0,0,0,0.6);
-    backdrop-filter:blur(10px);
-    z-index:1000;
-}
-
-nav img{
-    width:45px;
-}
-
-nav a{
-    color:white;
-    text-decoration:none;
-    margin-left:25px;
-    font-weight:600;
-    transition:0.3s;
-}
-
-nav a:hover{
-    color:#b84cff;
-}
-
-/* HERO */
-.hero{
-    height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    animation:fadeIn 1.5s ease;
-}
-
-/* ✨ ANIMATED TITLE */
-.animated-title{
-    font-family:'Orbitron',sans-serif;
-    font-size:55px;
-    letter-spacing:4px;
-    background: linear-gradient(90deg,#b84cff,#6a00ff,#b84cff);
-    background-size:200% auto;
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-    animation: shine 4s linear infinite, float 3s ease-in-out infinite;
-}
-
-.hero p{
-    margin-top:10px;
-    opacity:0.8;
-}
-
-.btn{
-    margin-top:25px;
-    padding:14px 30px;
-    border-radius:12px;
-    background:linear-gradient(45deg,#b84cff,#6a00ff);
-    text-decoration:none;
-    color:white;
-    font-weight:600;
-    transition:0.3s;
-}
-
-.btn:hover{
-    transform:scale(1.08);
-    box-shadow:0 0 20px #b84cff;
-}
-
-/* SECTIONS */
-section{
-    padding:100px 10%;
-}
-
-h2{
-    text-align:center;
-    font-size:38px;
-    margin-bottom:25px;
-}
-
-/* ABOUT */
-.about{
-    max-width:800px;
-    margin:auto;
-    text-align:center;
-    line-height:1.7;
-    opacity:0.9;
-}
-
-/* FEATURES */
-.features{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
-}
-
-.card{
-    background:rgba(255,255,255,0.05);
-    padding:25px;
-    border-radius:15px;
-    text-align:center;
-    transition:0.3s;
-}
-
-.card:hover{
-    transform:translateY(-8px);
-    background:rgba(184,76,255,0.15);
-}
-
-/* FLOAT DISCORD */
-.discord{
-    position:fixed;
-    bottom:20px;
-    right:20px;
-    background:#5865F2;
-    padding:15px 18px;
-    border-radius:50px;
-    text-decoration:none;
-    color:white;
-    font-weight:bold;
-    transition:0.3s;
-}
-
-.discord:hover{
-    transform:scale(1.1);
-}
-
-/* FOOTER */
-footer{
-    text-align:center;
-    padding:25px;
-    opacity:0.6;
-}
-
-/* ANIMATIONS */
-@keyframes fadeIn{
-    from{opacity:0;transform:translateY(20px);}
-    to{opacity:1;transform:translateY(0);}
-}
-
-/* ✨ SHINE EFFECT */
-@keyframes shine{
-    0%{background-position:0%;}
-    100%{background-position:200%;}
-}
-
-/* ✨ FLOAT EFFECT */
-@keyframes float{
-    0%,100%{transform:translateY(0px);}
-    50%{transform:translateY(-10px);}
-}
-
-/* MOBILE */
-@media(max-width:768px){
-    .animated-title{
-        font-size:35px;
+      /* Grid Background */
+      .grid-bg {
+        background-size: 40px 40px;
+        background-image: 
+          linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+        -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+      }
+      
+      /* Selection */
+      ::selection {
+        background: rgba(124, 58, 237, 0.3);
+        color: white;
+      }
+    </style>
+    <link rel="stylesheet" href="/index.css" />
+    <script type="importmap">
+      {
+      &#34;imports&#34;: {
+        &#34;react/&#34;: &#34;https://esm.sh/react@^19.2.4/&#34;,
+        &#34;react&#34;: &#34;https://esm.sh/react@^19.2.4&#34;,
+        &#34;lucide-react&#34;: &#34;https://esm.sh/lucide-react@^0.563.0&#34;,
+        &#34;react-dom/&#34;: &#34;https://esm.sh/react-dom@^19.2.4/&#34;,
+        &#34;d3&#34;: &#34;https://esm.sh/d3@^7.9.0&#34;,
+        &#34;topojson-client&#34;: &#34;https://esm.sh/topojson-client@^3.1.0&#34;
+      }
     }
-}
-</style>
-</head>
-
-<body>
-
-<!-- NAV -->
-<nav>
-    <img src="logo.png">
-    <div>
-        <a href="#about">About</a>
-        <a href="#features">Features</a>
-        <a href="#join">Join</a>
+    </script>
+    <script type="module" crossorigin="" src="/assets/index-DopeD6hV.js">
+    </script>
+  </head>
+  <body>
+    <div class="bg-noise">
     </div>
-</nav>
-
-<!-- HERO -->
-<div class="hero">
-    <h1 class="animated-title">TIER REALMS</h1>
-    <p>COMING SOON — A NEW ERA OF SURVIVAL</p>
-    <a class="btn" href="https://discord.gg/qJaMjCkqDk" target="_blank">Join Discord</a>
-</div>
-
-<!-- ABOUT -->
-<section id="about">
-    <h2>About Us</h2>
-    <div class="about">
-        <p>
-            Tier Realms is an upcoming next-generation Minecraft survival experience built for players who demand performance, freedom, and intensity.
-            <br><br>
-            This is not just survival — this is controlled chaos. No safe zones, no protection, and no limits. Every player writes their own story through PvP, raiding, alliances, and war.
-            <br><br>
-            Designed for smooth gameplay with optimized performance and minimal lag, Tier Realms aims to deliver a competitive environment where skill and strategy define your legacy.
-        </p>
+    <div id="root">
     </div>
-</section>
-
-<!-- FEATURES -->
-<section id="features">
-    <h2>Core Features</h2>
-    <div class="features">
-        <div class="card">Survival + Anarchy Experience</div>
-        <div class="card">No Rules Gameplay</div>
-        <div class="card">Full PvP & Raiding</div>
-        <div class="card">Optimized Performance</div>
-        <div class="card">Community Wars</div>
-        <div class="card">Long-Term Progression</div>
-    </div>
-</section>
-
-<!-- JOIN -->
-<section id="join">
-    <h2>Join The Community</h2>
-    <div class="about">
-        <p>
-            The server is currently under development and will be launching soon.
-            <br><br>
-            Join our Discord now to stay updated, secure your early presence, and be part of the founding community.
-        </p>
-        <br>
-        <a class="btn" href="https://discord.gg/qJaMjCkqDk" target="_blank">Join Discord</a>
-    </div>
-</section>
-
-<!-- FLOAT BUTTON -->
-<a href="https://discord.gg/qJaMjCkqDk" target="_blank" class="discord">
-    Discord
-</a>
-
-<!-- FOOTER -->
-<footer>
-    © 2026 Tier Realms — Built for domination. Launching soon.
-</footer>
-
-</body>
+    <!-- Entry point for Vite/React -->
+  </body>
 </html>
