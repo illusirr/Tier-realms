@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tier Realms Network</title>
 
-<!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
@@ -22,7 +21,6 @@ body {
     overflow-x: hidden;
 }
 
-/* Smooth scroll */
 html {
     scroll-behavior: smooth;
 }
@@ -69,10 +67,9 @@ html {
     left: 70px;
     font-size: 22px;
     font-weight: 700;
-    letter-spacing: 1px;
 }
 
-/* Hero Section */
+/* Hero */
 .hero {
     height: 100vh;
     display: flex;
@@ -83,17 +80,12 @@ html {
 
 .hero h1 {
     font-size: 40px;
-    font-weight: 700;
 }
 
 /* Features */
 .features {
     padding: 80px 20px;
     text-align: center;
-}
-
-.features h2 {
-    margin-bottom: 40px;
 }
 
 .feature-box {
@@ -105,7 +97,7 @@ html {
     backdrop-filter: blur(10px);
 }
 
-/* Discord Section */
+/* Discord */
 .discord {
     text-align: center;
     padding: 60px 20px;
@@ -119,7 +111,6 @@ html {
     border-radius: 30px;
     text-decoration: none;
     color: white;
-    transition: 0.3s;
 }
 
 .discord a:hover {
@@ -129,11 +120,27 @@ html {
 /* Footer */
 .footer {
     text-align: center;
-    padding: 20px;
+    padding: 30px 20px;
+    background: rgba(0,0,0,0.3);
+    backdrop-filter: blur(10px);
+}
+
+.footer img {
+    width: 50px;
+    margin: 10px;
+    transition: 0.3s;
+}
+
+.footer img:hover {
+    transform: scale(1.1);
+}
+
+.footer p {
+    margin-top: 10px;
     opacity: 0.7;
 }
 
-/* Bubble animation */
+/* Bubble */
 .bubble {
     position: absolute;
     bottom: -100px;
@@ -143,43 +150,31 @@ html {
 }
 
 @keyframes rise {
-    0% {
-        transform: translateY(0);
-        opacity: 0;
-    }
-    50% {
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(-1200px);
-        opacity: 0;
-    }
+    0% { transform: translateY(0); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateY(-1200px); opacity: 0; }
 }
 </style>
 </head>
 
 <body>
 
-<!-- Menu Button -->
 <div class="menu-btn" onclick="toggleMenu()">☰</div>
 
-<!-- Sidebar -->
+<!-- UPDATED SIDEBAR -->
 <div id="sidebar" class="sidebar">
-    <a href="#">Dashboard</a>
-    <a href="#">Features</a>
+    <a href="./leaderboards/">Leaderboards</a>
+    <a href="#features">Features</a>
     <a href="https://discord.gg/qJaMjCkqDk" target="_blank">Discord</a>
 </div>
 
-<!-- Header -->
 <div class="header">Tier Realms Network</div>
 
-<!-- Hero -->
 <section class="hero">
     <h1><b>Enjoy the Experience with Tier Realms</b></h1>
 </section>
 
-<!-- Features -->
-<section class="features">
+<section id="features" class="features">
     <h2>Server Specialities</h2>
     <div class="feature-box">
         <p>A SMP server with anarchy experience.</p>
@@ -188,19 +183,22 @@ html {
     </div>
 </section>
 
-<!-- Discord -->
 <section class="discord">
     <h2>Join Our Community</h2>
     <p>Follow rules and hop into the game & Discord</p>
     <a href="https://discord.gg/qJaMjCkqDk" target="_blank">Join Discord</a>
 </section>
 
-<!-- Footer -->
+<!-- UPDATED FOOTER WITH LOGOS -->
 <div class="footer">
-    © Tier Realms Network — Your Best Server Experience
+    <!-- Replace these with your real logo images -->
+    <img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" alt="Discord">
+    <img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" alt="GitHub">
+    <img src="https://cdn-icons-png.flaticon.com/512/888/888879.png" alt="Minecraft">
+
+    <p>© Tier Realms Network — Your Best Server Experience</p>
 </div>
 
-<!-- Bubbles -->
 <script>
 for (let i = 0; i < 20; i++) {
     let bubble = document.createElement("div");
@@ -211,7 +209,6 @@ for (let i = 0; i < 20; i++) {
     document.body.appendChild(bubble);
 }
 
-/* Toggle Sidebar */
 function toggleMenu() {
     let sidebar = document.getElementById("sidebar");
     sidebar.style.left = (sidebar.style.left === "0px") ? "-250px" : "0px";
