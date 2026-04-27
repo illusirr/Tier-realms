@@ -3,192 +3,156 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tier Realms</title>
+<title>Tier Realms Network</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
-
-<link rel="icon" href="logo.png">
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
-html{
-    scroll-behavior:smooth;
+body {
+    background: linear-gradient(135deg, #1a0026, #3a0066, #6a00ff);
+    color: white;
+    overflow-x: hidden;
 }
 
-/* 🔥 BETTER PURPLE BACKGROUND */
-body{
-    background: radial-gradient(circle at center, #2a0033 0%, #120018 40%, #000 100%);
-    color:white;
-    overflow-x:hidden;
+/* Smooth scroll */
+html {
+    scroll-behavior: smooth;
 }
 
-/* NAVBAR */
-nav{
-    position:fixed;
-    top:0;
-    width:100%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:15px 50px;
-    background:rgba(0,0,0,0.6);
-    backdrop-filter:blur(10px);
-    z-index:1000;
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(10px);
+    padding-top: 60px;
+    transition: 0.4s;
 }
 
-nav img{
-    width:45px;
+.sidebar a {
+    display: block;
+    padding: 15px 25px;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
 }
 
-nav a{
-    color:white;
-    text-decoration:none;
-    margin-left:25px;
-    font-weight:600;
-    transition:0.3s;
+.sidebar a:hover {
+    background: #6a00ff;
 }
 
-nav a:hover{
-    color:#b84cff;
+/* Menu Button */
+.menu-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-size: 28px;
+    cursor: pointer;
+    z-index: 1000;
 }
 
-/* HERO */
-.hero{
-    height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    animation:fadeIn 1.5s ease;
+/* Header */
+.header {
+    position: absolute;
+    top: 20px;
+    left: 70px;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 1px;
 }
 
-/* ✨ ANIMATED TITLE */
-.animated-title{
-    font-family:'Orbitron',sans-serif;
-    font-size:55px;
-    letter-spacing:4px;
-    background: linear-gradient(90deg,#b84cff,#6a00ff,#b84cff);
-    background-size:200% auto;
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-    animation: shine 4s linear infinite, float 3s ease-in-out infinite;
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
-.hero p{
-    margin-top:10px;
-    opacity:0.8;
+.hero h1 {
+    font-size: 40px;
+    font-weight: 700;
 }
 
-.btn{
-    margin-top:25px;
-    padding:14px 30px;
-    border-radius:12px;
-    background:linear-gradient(45deg,#b84cff,#6a00ff);
-    text-decoration:none;
-    color:white;
-    font-weight:600;
-    transition:0.3s;
+/* Features */
+.features {
+    padding: 80px 20px;
+    text-align: center;
 }
 
-.btn:hover{
-    transform:scale(1.08);
-    box-shadow:0 0 20px #b84cff;
+.features h2 {
+    margin-bottom: 40px;
 }
 
-/* SECTIONS */
-section{
-    padding:100px 10%;
+.feature-box {
+    max-width: 600px;
+    margin: auto;
+    background: rgba(255,255,255,0.05);
+    padding: 30px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
 }
 
-h2{
-    text-align:center;
-    font-size:38px;
-    margin-bottom:25px;
+/* Discord Section */
+.discord {
+    text-align: center;
+    padding: 60px 20px;
 }
 
-/* ABOUT */
-.about{
-    max-width:800px;
-    margin:auto;
-    text-align:center;
-    line-height:1.7;
-    opacity:0.9;
+.discord a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: #6a00ff;
+    border-radius: 30px;
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
 }
 
-/* FEATURES */
-.features{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
+.discord a:hover {
+    background: #8c2bff;
 }
 
-.card{
-    background:rgba(255,255,255,0.05);
-    padding:25px;
-    border-radius:15px;
-    text-align:center;
-    transition:0.3s;
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 20px;
+    opacity: 0.7;
 }
 
-.card:hover{
-    transform:translateY(-8px);
-    background:rgba(184,76,255,0.15);
+/* Bubble animation */
+.bubble {
+    position: absolute;
+    bottom: -100px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    animation: rise 10s infinite ease-in;
 }
 
-/* FLOAT DISCORD */
-.discord{
-    position:fixed;
-    bottom:20px;
-    right:20px;
-    background:#5865F2;
-    padding:15px 18px;
-    border-radius:50px;
-    text-decoration:none;
-    color:white;
-    font-weight:bold;
-    transition:0.3s;
-}
-
-.discord:hover{
-    transform:scale(1.1);
-}
-
-/* FOOTER */
-footer{
-    text-align:center;
-    padding:25px;
-    opacity:0.6;
-}
-
-/* ANIMATIONS */
-@keyframes fadeIn{
-    from{opacity:0;transform:translateY(20px);}
-    to{opacity:1;transform:translateY(0);}
-}
-
-/* ✨ SHINE EFFECT */
-@keyframes shine{
-    0%{background-position:0%;}
-    100%{background-position:200%;}
-}
-
-/* ✨ FLOAT EFFECT */
-@keyframes float{
-    0%,100%{transform:translateY(0px);}
-    50%{transform:translateY(-10px);}
-}
-
-/* MOBILE */
-@media(max-width:768px){
-    .animated-title{
-        font-size:35px;
+@keyframes rise {
+    0% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-1200px);
+        opacity: 0;
     }
 }
 </style>
@@ -196,73 +160,63 @@ footer{
 
 <body>
 
-<!-- NAV -->
-<nav>
-    <img src="logo.png">
-    <div>
-        <a href="#about">About</a>
-        <a href="#features">Features</a>
-        <a href="#join">Join</a>
-    </div>
-</nav>
+<!-- Menu Button -->
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
 
-<!-- HERO -->
-<div class="hero">
-    <h1 class="animated-title">TIER REALMS</h1>
-    <p>COMING SOON — A NEW ERA OF SURVIVAL</p>
-    <a class="btn" href="https://discord.gg/qJaMjCkqDk" target="_blank">Join Discord</a>
+<!-- Sidebar -->
+<div id="sidebar" class="sidebar">
+    <a href="#">Dashboard</a>
+    <a href="#">Features</a>
+    <a href="https://discord.gg/qJaMjCkqDk" target="_blank">Discord</a>
 </div>
 
-<!-- ABOUT -->
-<section id="about">
-    <h2>About Us</h2>
-    <div class="about">
-        <p>
-            Tier Realms is an upcoming next-generation Minecraft survival experience built for players who demand performance, freedom, and intensity.
-            <br><br>
-            This is not just survival — this is controlled chaos. No safe zones, no protection, and no limits. Every player writes their own story through PvP, raiding, alliances, and war.
-            <br><br>
-            Designed for smooth gameplay with optimized performance and minimal lag, Tier Realms aims to deliver a competitive environment where skill and strategy define your legacy.
-        </p>
+<!-- Header -->
+<div class="header">Tier Realms Network</div>
+
+<!-- Hero -->
+<section class="hero">
+    <h1><b>Enjoy the Experience with Tier Realms</b></h1>
+</section>
+
+<!-- Features -->
+<section class="features">
+    <h2>Server Specialities</h2>
+    <div class="feature-box">
+        <p>A SMP server with anarchy experience.</p>
+        <p>Rank matches and rank perks.</p>
+        <p>Join Discord for information.</p>
     </div>
 </section>
 
-<!-- FEATURES -->
-<section id="features">
-    <h2>Core Features</h2>
-    <div class="features">
-        <div class="card">Survival + Anarchy Experience</div>
-        <div class="card">No Rules Gameplay</div>
-        <div class="card">Full PvP & Raiding</div>
-        <div class="card">Optimized Performance</div>
-        <div class="card">Community Wars</div>
-        <div class="card">Long-Term Progression</div>
-    </div>
+<!-- Discord -->
+<section class="discord">
+    <h2>Join Our Community</h2>
+    <p>Follow rules and hop into the game & Discord</p>
+    <a href="https://discord.gg/qJaMjCkqDk" target="_blank">Join Discord</a>
 </section>
 
-<!-- JOIN -->
-<section id="join">
-    <h2>Join The Community</h2>
-    <div class="about">
-        <p>
-            The server is currently under development and will be launching soon.
-            <br><br>
-            Join our Discord now to stay updated, secure your early presence, and be part of the founding community.
-        </p>
-        <br>
-        <a class="btn" href="https://discord.gg/qJaMjCkqDk" target="_blank">Join Discord</a>
-    </div>
-</section>
+<!-- Footer -->
+<div class="footer">
+    © Tier Realms Network — Your Best Server Experience
+</div>
 
-<!-- FLOAT BUTTON -->
-<a href="https://discord.gg/qJaMjCkqDk" target="_blank" class="discord">
-    Discord
-</a>
+<!-- Bubbles -->
+<script>
+for (let i = 0; i < 20; i++) {
+    let bubble = document.createElement("div");
+    bubble.classList.add("bubble");
+    bubble.style.width = bubble.style.height = Math.random() * 40 + "px";
+    bubble.style.left = Math.random() * 100 + "%";
+    bubble.style.animationDuration = (5 + Math.random() * 5) + "s";
+    document.body.appendChild(bubble);
+}
 
-<!-- FOOTER -->
-<footer>
-    © 2026 Tier Realms — Built for domination. Launching soon.
-</footer>
+/* Toggle Sidebar */
+function toggleMenu() {
+    let sidebar = document.getElementById("sidebar");
+    sidebar.style.left = (sidebar.style.left === "0px") ? "-250px" : "0px";
+}
+</script>
 
 </body>
 </html>
