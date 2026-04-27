@@ -43,7 +43,6 @@ html {
     padding: 15px 25px;
     color: white;
     text-decoration: none;
-    transition: 0.3s;
 }
 
 .sidebar a:hover {
@@ -57,14 +56,23 @@ html {
     left: 20px;
     font-size: 28px;
     cursor: pointer;
-    z-index: 1000;
 }
 
-/* Header */
+/* Header with Logo */
 .header {
     position: absolute;
-    top: 20px;
+    top: 15px;
     left: 70px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header img {
+    width: 40px;
+}
+
+.header span {
     font-size: 22px;
     font-weight: 700;
 }
@@ -88,13 +96,24 @@ html {
     text-align: center;
 }
 
-.feature-box {
-    max-width: 600px;
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 900px;
     margin: auto;
+}
+
+.feature-box {
     background: rgba(255,255,255,0.05);
-    padding: 30px;
+    padding: 25px;
     border-radius: 15px;
     backdrop-filter: blur(10px);
+    transition: 0.3s;
+}
+
+.feature-box:hover {
+    transform: translateY(-5px);
 }
 
 /* Discord */
@@ -120,27 +139,20 @@ html {
 /* Footer */
 .footer {
     text-align: center;
-    padding: 30px 20px;
+    padding: 25px;
     background: rgba(0,0,0,0.3);
-    backdrop-filter: blur(10px);
 }
 
 .footer img {
-    width: 50px;
-    margin: 10px;
-    transition: 0.3s;
-}
-
-.footer img:hover {
-    transform: scale(1.1);
+    width: 40px;
+    margin-bottom: 10px;
 }
 
 .footer p {
-    margin-top: 10px;
     opacity: 0.7;
 }
 
-/* Bubble */
+/* Bubbles */
 .bubble {
     position: absolute;
     bottom: -100px;
@@ -161,41 +173,73 @@ html {
 
 <div class="menu-btn" onclick="toggleMenu()">☰</div>
 
-<!-- UPDATED SIDEBAR -->
+<!-- Sidebar -->
 <div id="sidebar" class="sidebar">
     <a href="./leaderboards/">Leaderboards</a>
     <a href="#features">Features</a>
     <a href="https://discord.gg/qJaMjCkqDk" target="_blank">Discord</a>
 </div>
 
-<div class="header">Tier Realms Network</div>
+<!-- Header with your logo -->
+<div class="header">
+    <img src="logo.png" alt="Tier Realms Logo">
+    <span>Tier Realms Network</span>
+</div>
 
+<!-- Hero -->
 <section class="hero">
     <h1><b>Enjoy the Experience with Tier Realms</b></h1>
 </section>
 
+<!-- Features -->
 <section id="features" class="features">
-    <h2>Server Specialities</h2>
-    <div class="feature-box">
-        <p>A SMP server with anarchy experience.</p>
-        <p>Rank matches and rank perks.</p>
-        <p>Join Discord for information.</p>
+    <h2>Server Features</h2>
+
+    <div class="feature-grid">
+        <div class="feature-box">
+            <h3>SMP + Anarchy</h3>
+            <p>No safe zones. Full freedom to build, raid, and survive.</p>
+        </div>
+
+        <div class="feature-box">
+            <h3>Rank Matches</h3>
+            <p>Compete every weekend and climb ranks with skill.</p>
+        </div>
+
+        <div class="feature-box">
+            <h3>Rank Perks</h3>
+            <p>Unlock powerful perks as you progress higher tiers.</p>
+        </div>
+
+        <div class="feature-box">
+            <h3>No Pay-to-Win</h3>
+            <p>Everything is earned through gameplay only.</p>
+        </div>
+
+        <div class="feature-box">
+            <h3>Lag-Free Experience</h3>
+            <p>Optimized server for smooth and stable gameplay.</p>
+        </div>
+
+        <div class="feature-box">
+            <h3>Community Driven</h3>
+            <p>Join events, wars, and alliances with players.</p>
+        </div>
     </div>
 </section>
 
+<!-- Discord -->
 <section class="discord">
     <h2>Join Our Community</h2>
     <p>Follow rules and hop into the game & Discord</p>
     <a href="https://discord.gg/qJaMjCkqDk" target="_blank">Join Discord</a>
 </section>
 
-<!-- UPDATED FOOTER WITH LOGOS -->
+<!-- Footer (only Discord logo) -->
 <div class="footer">
-    <!-- Replace these with your real logo images -->
-    <img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" alt="Discord">
-    <img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" alt="GitHub">
-    <img src="https://cdn-icons-png.flaticon.com/512/888/888879.png" alt="Minecraft">
-
+    <a href="https://discord.gg/qJaMjCkqDk" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" alt="Discord">
+    </a>
     <p>© Tier Realms Network — Your Best Server Experience</p>
 </div>
 
