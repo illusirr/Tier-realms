@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tier Realms Network</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700;800&display=swap" rel="stylesheet">
 
 <style>
 * {
@@ -16,248 +16,204 @@
 }
 
 body {
-    background: linear-gradient(135deg, #1a0026, #3a0066, #6a00ff);
     color: white;
     overflow-x: hidden;
 }
 
-html {
-    scroll-behavior: smooth;
+/* Background */
+.hero {
+    height: 100vh;
+    background: 
+        linear-gradient(rgba(120,0,0,0.7), rgba(0,0,0,0.85)),
+        url('https://images.unsplash.com/photo-1606117338315-1e6c5a7e0e8b?auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    position: relative;
 }
 
-/* Sidebar */
-.sidebar {
-    position: fixed;
-    top: 0;
-    left: -250px;
-    width: 250px;
-    height: 100%;
-    background: rgba(0,0,0,0.6);
-    backdrop-filter: blur(10px);
-    padding-top: 60px;
-    transition: 0.4s;
-}
-
-.sidebar a {
-    display: block;
-    padding: 15px 25px;
-    color: white;
-    text-decoration: none;
-}
-
-.sidebar a:hover {
-    background: #6a00ff;
-}
-
-/* Menu Button */
-.menu-btn {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    font-size: 28px;
-    cursor: pointer;
-}
-
-/* Header with Logo */
-.header {
+/* Top Bar */
+.topbar {
     position: absolute;
-    top: 15px;
-    left: 70px;
+    top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 40px;
+    align-items: center;
+}
+
+.logo {
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-.header img {
+.logo img {
     width: 40px;
 }
 
-.header span {
-    font-size: 22px;
+.logo span {
     font-weight: 700;
+    font-size: 20px;
 }
 
-/* Hero */
-.hero {
-    height: 100vh;
+.top-right {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.badge {
+    background: rgba(255,255,255,0.1);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+.online {
+    background: rgba(0,255,100,0.15);
+    color: #00ff88;
+}
+
+/* Center Content */
+.center {
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     text-align: center;
 }
 
-.hero h1 {
-    font-size: 40px;
+.tag {
+    background: rgba(255,80,80,0.2);
+    padding: 6px 15px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    font-size: 14px;
 }
 
-/* Features */
-.features {
-    padding: 80px 20px;
-    text-align: center;
+.center h1 {
+    font-size: 60px;
+    font-weight: 800;
 }
 
-.feature-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+.center h1 span {
+    color: #ff3b3b;
+}
+
+.center p {
+    max-width: 600px;
+    opacity: 0.8;
+    margin-top: 15px;
+    line-height: 1.6;
+}
+
+/* Glass Card */
+.card {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     gap: 20px;
-    max-width: 900px;
-    margin: auto;
-}
 
-.feature-box {
-    background: rgba(255,255,255,0.05);
-    padding: 25px;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(12px);
+
+    padding: 20px 25px;
     border-radius: 15px;
-    backdrop-filter: blur(10px);
-    transition: 0.3s;
+    width: 90%;
+    max-width: 800px;
 }
 
-.feature-box:hover {
-    transform: translateY(-5px);
+.card-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
-/* Discord */
-.discord {
-    text-align: center;
-    padding: 60px 20px;
+.card-left img {
+    width: 40px;
 }
 
-.discord a {
-    display: inline-block;
-    margin-top: 20px;
+.card-text {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+/* Button */
+.btn {
+    background: linear-gradient(90deg, #4a6cff, #6a00ff);
     padding: 12px 25px;
-    background: #6a00ff;
     border-radius: 30px;
     text-decoration: none;
     color: white;
+    font-weight: 500;
+    transition: 0.3s;
 }
 
-.discord a:hover {
-    background: #8c2bff;
+.btn:hover {
+    transform: scale(1.05);
 }
 
-/* Footer */
-.footer {
-    text-align: center;
-    padding: 25px;
-    background: rgba(0,0,0,0.3);
-}
+/* Mobile */
+@media(max-width: 768px) {
+    .center h1 {
+        font-size: 40px;
+    }
 
-.footer img {
-    width: 40px;
-    margin-bottom: 10px;
-}
-
-.footer p {
-    opacity: 0.7;
-}
-
-/* Bubbles */
-.bubble {
-    position: absolute;
-    bottom: -100px;
-    background: rgba(255,255,255,0.1);
-    border-radius: 50%;
-    animation: rise 10s infinite ease-in;
-}
-
-@keyframes rise {
-    0% { transform: translateY(0); opacity: 0; }
-    50% { opacity: 1; }
-    100% { transform: translateY(-1200px); opacity: 0; }
+    .card {
+        flex-direction: column;
+        text-align: center;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<div class="menu-btn" onclick="toggleMenu()">☰</div>
-
-<!-- Sidebar -->
-<div id="sidebar" class="sidebar">
-    <a href="./leaderboards/">Leaderboards</a>
-    <a href="#features">Features</a>
-    <a href="https://discord.gg/qJaMjCkqDk" target="_blank">Discord</a>
-</div>
-
-<!-- Header with your logo -->
-<div class="header">
-    <img src="logo.png" alt="Tier Realms Logo">
-    <span>Tier Realms Network</span>
-</div>
-
-<!-- Hero -->
 <section class="hero">
-    <h1><b>Enjoy the Experience with Tier Realms</b></h1>
-</section>
 
-<!-- Features -->
-<section id="features" class="features">
-    <h2>Server Features</h2>
-
-    <div class="feature-grid">
-        <div class="feature-box">
-            <h3>SMP + Anarchy</h3>
-            <p>No safe zones. Full freedom to build, raid, and survive.</p>
+    <!-- Top -->
+    <div class="topbar">
+        <div class="logo">
+            <img src="logo.png">
+            <span>Tier Realms</span>
         </div>
 
-        <div class="feature-box">
-            <h3>Rank Matches</h3>
-            <p>Compete every weekend and climb ranks with skill.</p>
-        </div>
-
-        <div class="feature-box">
-            <h3>Rank Perks</h3>
-            <p>Unlock powerful perks as you progress higher tiers.</p>
-        </div>
-
-        <div class="feature-box">
-            <h3>No Pay-to-Win</h3>
-            <p>Everything is earned through gameplay only.</p>
-        </div>
-
-        <div class="feature-box">
-            <h3>Lag-Free Experience</h3>
-            <p>Optimized server for smooth and stable gameplay.</p>
-        </div>
-
-        <div class="feature-box">
-            <h3>Community Driven</h3>
-            <p>Join events, wars, and alliances with players.</p>
+        <div class="top-right">
+            <div class="badge">play.tierrealms.top</div>
+            <div class="badge online">● 14 online</div>
         </div>
     </div>
+
+    <!-- Center -->
+    <div class="center">
+        <div class="tag">Tier Realms Store</div>
+
+        <h1>Upgrade Your <br><span>Experience</span></h1>
+
+        <p>
+            Pick a rank, get your kit, and dominate across all our servers.
+            VIP, MVP and IMMORTAL — each with unique gear and commands.
+        </p>
+
+        <div class="card">
+            <div class="card-left">
+                <img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png">
+                <div class="card-text">
+                    Open a ticket in our Discord server, tell us your rank,
+                    pay and get access within minutes.
+                </div>
+            </div>
+
+            <a href="https://discord.gg/qJaMjCkqDk" class="btn" target="_blank">
+                Open Ticket →
+            </a>
+        </div>
+    </div>
+
 </section>
-
-<!-- Discord -->
-<section class="discord">
-    <h2>Join Our Community</h2>
-    <p>Follow rules and hop into the game & Discord</p>
-    <a href="https://discord.gg/qJaMjCkqDk" target="_blank">Join Discord</a>
-</section>
-
-<!-- Footer (only Discord logo) -->
-<div class="footer">
-    <a href="https://discord.gg/qJaMjCkqDk" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" alt="Discord">
-    </a>
-    <p>© Tier Realms Network — Your Best Server Experience</p>
-</div>
-
-<script>
-for (let i = 0; i < 20; i++) {
-    let bubble = document.createElement("div");
-    bubble.classList.add("bubble");
-    bubble.style.width = bubble.style.height = Math.random() * 40 + "px";
-    bubble.style.left = Math.random() * 100 + "%";
-    bubble.style.animationDuration = (5 + Math.random() * 5) + "s";
-    document.body.appendChild(bubble);
-}
-
-function toggleMenu() {
-    let sidebar = document.getElementById("sidebar");
-    sidebar.style.left = (sidebar.style.left === "0px") ? "-250px" : "0px";
-}
-</script>
 
 </body>
 </html>
