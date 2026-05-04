@@ -5,20 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tier Realms Network</title>
 
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
 <style>
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 body {
-  background: linear-gradient(135deg, #4b0082, #8a2be2);
-  color: white;
+  background: linear-gradient(135deg, #14001f, #2b0040, #3d0066);
+  color: #fff;
   overflow-x: hidden;
 }
 
@@ -27,12 +26,18 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
+  padding: 16px 24px;
   display: flex;
   align-items: center;
-  padding: 15px 20px;
-  backdrop-filter: blur(10px);
   background: rgba(0,0,0,0.3);
+  backdrop-filter: blur(12px);
   z-index: 1000;
+}
+
+.menu-btn {
+  font-size: 24px;
+  cursor: pointer;
+  margin-right: 15px;
 }
 
 /* LOGO */
@@ -43,31 +48,24 @@ body {
 }
 
 .logo img {
-  width: 40px;
+  width: 42px;
 }
 
-.logo h1 {
+.logo span {
+  font-weight: 700;
   font-size: 18px;
-  font-weight: 600;
-}
-
-/* MENU BUTTON */
-.menu-btn {
-  font-size: 24px;
-  cursor: pointer;
-  margin-right: 15px;
 }
 
 /* SIDEBAR */
 .sidebar {
   position: fixed;
-  top: 0;
   left: -260px;
+  top: 0;
   width: 260px;
   height: 100%;
-  background: rgba(20, 0, 40, 0.95);
-  padding: 20px;
-  transition: 0.4s;
+  background: #12001c;
+  padding: 25px;
+  transition: 0.35s ease;
 }
 
 .sidebar.active {
@@ -76,84 +74,102 @@ body {
 
 .sidebar a {
   display: block;
-  color: white;
-  text-decoration: none;
+  margin: 12px 0;
   padding: 12px;
-  margin: 10px 0;
   border-radius: 8px;
-  transition: 0.3s;
+  text-decoration: none;
+  color: white;
+  transition: 0.25s;
 }
 
 .sidebar a:hover {
-  background: #8a2be2;
+  background: #3a0060;
 }
 
 /* HERO */
 .hero {
   height: 100vh;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   text-align: center;
   padding: 20px;
 }
 
-.hero h2 {
-  font-size: 42px;
-  font-weight: 700;
-  animation: glow 2s infinite alternate;
-}
-
-/* TEXT ANIMATION (NO MOVING) */
-@keyframes glow {
-  from { text-shadow: 0 0 10px #fff; }
-  to { text-shadow: 0 0 20px #d8b4ff, 0 0 30px #a855f7; }
+.hero h1 {
+  font-size: 48px;
+  font-weight: 800;
 }
 
 .hero p {
-  margin-top: 15px;
+  margin-top: 12px;
   font-size: 18px;
-  opacity: 0.9;
+  opacity: 0.85;
 }
 
-/* DISCORD BUTTON */
-.discord-btn {
-  margin-top: 20px;
+/* BUTTONS */
+.btn {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 12px 20px;
-  background: #5865F2;
+  margin-top: 20px;
+  padding: 12px 22px;
   border-radius: 10px;
   text-decoration: none;
-  color: white;
-  transition: 0.3s;
+  font-weight: 600;
+  transition: 0.25s;
 }
 
-.discord-btn:hover {
-  transform: scale(1.05);
+.discord {
+  background: #5865F2;
+}
+
+.youtube {
+  background: #ff0000;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
 }
 
 /* SECTIONS */
 .section {
-  padding: 80px 20px;
-  max-width: 1000px;
+  max-width: 1100px;
   margin: auto;
+  padding: 80px 20px;
+}
+
+.section h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+/* CARDS */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
 }
 
 .card {
-  background: rgba(255,255,255,0.05);
+  background: rgba(255,255,255,0.04);
   padding: 20px;
   border-radius: 12px;
-  margin: 15px 0;
-  backdrop-filter: blur(8px);
+  transition: 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  background: rgba(255,255,255,0.07);
 }
 
 /* FOOTER */
 .footer {
   text-align: center;
   padding: 30px;
-  opacity: 0.7;
+  opacity: 0.6;
 }
 
 /* SMOOTH SCROLL */
@@ -169,53 +185,98 @@ html {
 <div class="sidebar" id="sidebar">
   <a href="#">🏆 Leaderboards</a>
   <a href="https://discord.gg/a3MCqFwqgp" target="_blank">💬 Discord</a>
+  <a href="https://www.youtube.com/@Tierrealmsofficial/featured" target="_blank">📺 YouTube</a>
 </div>
 
 <!-- NAVBAR -->
 <div class="navbar">
   <div class="menu-btn" onclick="toggleMenu()">☰</div>
-
   <div class="logo">
-    <img src="logo.png" alt="logo">
-    <h1>Tier Realms Network</h1>
+    <img src="logo.png">
+    <span>Tier Realms Network</span>
   </div>
 </div>
 
 <!-- HERO -->
-<div class="hero">
+<section class="hero">
   <div>
-    <h2>Join Tier Realms</h2>
-    <p>Join our Discord for more information.  
-    Need support? We provide quick support and ticket system.</p>
+    <h1>Tier Realms Network</h1>
+    <p>Join our Discord for information, quick support, and ticket system.</p>
 
-    <a href="https://discord.gg/a3MCqFwqgp" class="discord-btn" target="_blank">
+    <a href="https://discord.gg/a3MCqFwqgp" class="btn discord" target="_blank">
       💬 Join Discord
     </a>
-  </div>
-</div>
 
-<!-- SCROLL CONTENT -->
-<div class="section">
-  <div class="card">
-    <h3>🌍 About Server</h3>
-    <p>Tier Realms is a modern Minecraft network designed for smooth gameplay on all devices. Supports both Java & Bedrock players.</p>
-  </div>
+    <br>
 
-  <div class="card">
-    <h3>⚡ Features</h3>
-    <p>Custom ranks, leaderboards, events, PvP, and optimized performance for low-end devices.</p>
+    <a href="https://www.youtube.com/@Tierrealmsofficial/featured" class="btn youtube" target="_blank">
+      ▶ YouTube Channel
+    </a>
   </div>
+</section>
 
-  <div class="card">
-    <h3>🎮 Gameplay</h3>
-    <p>Play competitively, build, or grind your way to the top. Track your stats on leaderboards.</p>
-  </div>
+<!-- SERVER OVERVIEW -->
+<section class="section">
+  <h2>Server Overview</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>🌍 Cross Platform</h3>
+      <p>Supports both Java and Bedrock players with smooth gameplay.</p>
+    </div>
 
-  <div class="card">
-    <h3>🛠 Support</h3>
-    <p>Fast support via Discord tickets. Our team responds quickly to help players.</p>
+    <div class="card">
+      <h3>⚡ Performance</h3>
+      <p>Optimized for low-end devices to ensure lag-free experience.</p>
+    </div>
+
+    <div class="card">
+      <h3>🏆 Leaderboards</h3>
+      <p>Compete and climb ranks with global stat tracking.</p>
+    </div>
   </div>
-</div>
+</section>
+
+<!-- COMMUNITY -->
+<section class="section">
+  <h2>Community</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>💬 Active Community</h3>
+      <p>Growing worldwide player base and active Discord members.</p>
+    </div>
+
+    <div class="card">
+      <h3>🛠 Support</h3>
+      <p>Quick support system with tickets and fast response time.</p>
+    </div>
+
+    <div class="card">
+      <h3>🚀 Development</h3>
+      <p>We are continuously developing the server worldwide with new features.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MORE FEATURES -->
+<section class="section">
+  <h2>Features</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>🎮 Gameplay</h3>
+      <p>Balanced PvP, survival, and competitive gameplay.</p>
+    </div>
+
+    <div class="card">
+      <h3>📊 Stats</h3>
+      <p>Track player stats, rankings, and achievements.</p>
+    </div>
+
+    <div class="card">
+      <h3>🔗 Integration</h3>
+      <p>Connected with Discord and web systems.</p>
+    </div>
+  </div>
+</section>
 
 <!-- FOOTER -->
 <div class="footer">
