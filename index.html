@@ -3,265 +3,229 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tier Realms — Build Destroy</title>
-<link rel="icon" href="logo.png">
+<title>Tier Realms Network</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700;800&display=swap" rel="stylesheet">
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
 body {
-    background: linear-gradient(135deg, #0a001a, #1a0033, #3a0066);
-    color: white;
+  background: linear-gradient(135deg, #4b0082, #8a2be2);
+  color: white;
+  overflow-x: hidden;
 }
 
-.nav {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    padding: 20px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  backdrop-filter: blur(10px);
+  background: rgba(0,0,0,0.3);
+  z-index: 1000;
 }
 
-/* LEFT SIDE */
-.left {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.menu-btn {
-    font-size: 24px;
-    cursor: pointer;
-}
-
+/* LOGO */
 .logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.logo img { width: 40px; }
-
-/* RIGHT */
-.right {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+.logo img {
+  width: 40px;
 }
 
-.right img {
-    width: 26px;
-    cursor: pointer;
-    transition: 0.3s;
+.logo h1 {
+  font-size: 18px;
+  font-weight: 600;
 }
 
-.right img:hover {
-    transform: scale(1.2);
-}
-
-.status {
-    font-weight: 700;
-    color: #ff4dff;
+/* MENU BUTTON */
+.menu-btn {
+  font-size: 24px;
+  cursor: pointer;
+  margin-right: 15px;
 }
 
 /* SIDEBAR */
 .sidebar {
-    position: fixed;
-    left: -250px;
-    top: 0;
-    width: 250px;
-    height: 100%;
-    background: rgba(0,0,0,0.7);
-    backdrop-filter: blur(10px);
-    padding-top: 80px;
-    transition: 0.4s;
+  position: fixed;
+  top: 0;
+  left: -260px;
+  width: 260px;
+  height: 100%;
+  background: rgba(20, 0, 40, 0.95);
+  padding: 20px;
+  transition: 0.4s;
+}
+
+.sidebar.active {
+  left: 0;
 }
 
 .sidebar a {
-    display: block;
-    padding: 15px 25px;
-    color: white;
-    text-decoration: none;
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  transition: 0.3s;
 }
 
 .sidebar a:hover {
-    background: #6a00ff;
+  background: #8a2be2;
 }
 
 /* HERO */
 .hero {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
 }
 
-.hero h1 {
-    font-size: 60px;
-    font-weight: 800;
+.hero h2 {
+  font-size: 42px;
+  font-weight: 700;
+  animation: glow 2s infinite alternate;
 }
 
-.hero span {
-    color: #b84dff;
+/* TEXT ANIMATION (NO MOVING) */
+@keyframes glow {
+  from { text-shadow: 0 0 10px #fff; }
+  to { text-shadow: 0 0 20px #d8b4ff, 0 0 30px #a855f7; }
 }
 
-/* CONTENT */
-.content {
-    padding: 100px 20px;
-    max-width: 900px;
-    margin: auto;
-    line-height: 1.8;
+.hero p {
+  margin-top: 15px;
+  font-size: 18px;
+  opacity: 0.9;
 }
 
-.content h2 {
-    margin-top: 40px;
-    font-weight: 700;
+/* DISCORD BUTTON */
+.discord-btn {
+  margin-top: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  background: #5865F2;
+  border-radius: 10px;
+  text-decoration: none;
+  color: white;
+  transition: 0.3s;
 }
 
-/* BUTTON */
-.btn {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 12px 25px;
-    border-radius: 30px;
-    background: linear-gradient(90deg, #6a00ff, #b84dff);
-    color: white;
-    text-decoration: none;
+.discord-btn:hover {
+  transform: scale(1.05);
 }
 
-/* ANIMATION */
-.hidden {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: 1s;
+/* SECTIONS */
+.section {
+  padding: 80px 20px;
+  max-width: 1000px;
+  margin: auto;
 }
 
-.show {
-    opacity: 1;
-    transform: translateY(0);
+.card {
+  background: rgba(255,255,255,0.05);
+  padding: 20px;
+  border-radius: 12px;
+  margin: 15px 0;
+  backdrop-filter: blur(8px);
 }
 
 /* FOOTER */
 .footer {
-    text-align: center;
-    padding: 30px;
-    opacity: 0.6;
+  text-align: center;
+  padding: 30px;
+  opacity: 0.7;
+}
+
+/* SMOOTH SCROLL */
+html {
+  scroll-behavior: smooth;
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAV -->
-<div class="nav">
-    <div class="left">
-        <div class="menu-btn" onclick="toggleMenu()">|||</div>
-
-        <div class="logo">
-            <img src="logo.png">
-            <span>Tier Realms Network</span>
-        </div>
-    </div>
-
-    <div class="right">
-        <a href="https://www.youtube.com/@Tierrealmsofficial" target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png">
-        </a>
-
-        <a href="https://discord.gg/qJaMjCkqDk" target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png">
-        </a>
-
-        <div class="status">STATUS: COMING SOON</div>
-    </div>
+<!-- SIDEBAR -->
+<div class="sidebar" id="sidebar">
+  <a href="#">🏆 Leaderboards</a>
+  <a href="https://discord.gg/a3MCqFwqgp" target="_blank">💬 Discord</a>
 </div>
 
-<!-- SIDEBAR -->
-<div id="sidebar" class="sidebar">
-    <a href="./leaderboards/">Leaderboard</a>
-    <a href="./rank-rules/">Tier Rules</a>
+<!-- NAVBAR -->
+<div class="navbar">
+  <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+  <div class="logo">
+    <img src="logo.png" alt="logo">
+    <h1>Tier Realms Network</h1>
+  </div>
 </div>
 
 <!-- HERO -->
-<section class="hero">
-    <h1>Tier Realms <br><span>Build Destroy</span></h1>
-</section>
+<div class="hero">
+  <div>
+    <h2>Join Tier Realms</h2>
+    <p>Join our Discord for more information.  
+    Need support? We provide quick support and ticket system.</p>
 
-<!-- CONTENT -->
-<section class="content hidden">
+    <a href="https://discord.gg/a3MCqFwqgp" class="discord-btn" target="_blank">
+      💬 Join Discord
+    </a>
+  </div>
+</div>
 
-<h2><b>Overview</b></h2>
-<p>
-Tier Realms is a high-performance Survival Multiplayer (SMP) server focused on smooth, stable, and low-latency gameplay. Built for consistency and fairness, it delivers a premium survival experience without lag or interruptions.
-</p>
+<!-- SCROLL CONTENT -->
+<div class="section">
+  <div class="card">
+    <h3>🌍 About Server</h3>
+    <p>Tier Realms is a modern Minecraft network designed for smooth gameplay on all devices. Supports both Java & Bedrock players.</p>
+  </div>
 
-<h2><b>Tier Rank System</b></h2>
-<p>
-A unique competitive system where ranks are earned through skill — not purchases.<br>
-• Weekend Rank Matches (Saturday & Sunday)<br>
-• Earn points based on WINS<br>
-• Climb tiers through consistency and wins (LT1 to HT1)
-</p>
+  <div class="card">
+    <h3>⚡ Features</h3>
+    <p>Custom ranks, leaderboards, events, PvP, and optimized performance for low-end devices.</p>
+  </div>
 
-<h2><b>Modern Features</b></h2>
-<p>
-• Pearl Stasis Chamber support for advanced teleport mechanics<br>
-• Detailed Player Stats Tracking (kills, deaths, mining, activity)<br>
-• Rank-Based Kits with fair progression (starter to advanced)<br>
-• Smart Server Messages & Alerts for events and updates<br>
-• Clean and informative Tab System showing online players & server stats<br>
-• Leaderboard System to track top players and rankings<br>
-• Smooth UI-style features for a modern gameplay feel
-</p>
+  <div class="card">
+    <h3>🎮 Gameplay</h3>
+    <p>Play competitively, build, or grind your way to the top. Track your stats on leaderboards.</p>
+  </div>
 
-<h2><b>Gameplay Features</b></h2>
-<p>
-• Pure SMP experience<br>
-• Balanced economy system<br>
-• Fair progression — no pay-to-win<br>
-• Smooth gameplay with optimized performance<br>
-• Active development and regular updates
-</p>
-
-<h2><b>Community</b></h2>
-<p>
-A growing and competitive player base where both casual and skilled players can enjoy survival, trading, building, and competing together.
-</p>
-
-<a href="https://discord.gg/qJaMjCkqDk" class="btn">Join Discord</a>
-
-</section>
+  <div class="card">
+    <h3>🛠 Support</h3>
+    <p>Fast support via Discord tickets. Our team responds quickly to help players.</p>
+  </div>
+</div>
 
 <!-- FOOTER -->
 <div class="footer">
-© 2026 Tier Realms Network — All Rights Reserved
+  © 2026 Tier Realms Network
 </div>
 
 <script>
 function toggleMenu() {
-    let sidebar = document.getElementById("sidebar");
-    sidebar.style.left = (sidebar.style.left === "0px") ? "-250px" : "0px";
+  document.getElementById("sidebar").classList.toggle("active");
 }
-
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if(entry.isIntersecting){
-            entry.target.classList.add('show');
-        }
-    });
-});
-
-document.querySelectorAll('.hidden').forEach(el => observer.observe(el));
 </script>
 
 </body>
